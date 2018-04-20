@@ -61,8 +61,8 @@ def main(lst_sms):
 			dct_data["time_stamp"] = sms["timestamp"]
 			lst_data.append(dct_data)
 			
-			#sorting based on sms date
-			lst_data = sorted(lst_data,key=lambda x:x["time_stamp"],reverse=1)
+	#sorting based on sms date
+	lst_data = sorted(lst_data,key=lambda x:x["time_stamp"],reverse=1)
 	return lst_data	
 
 def date_time_conversion(date_time):

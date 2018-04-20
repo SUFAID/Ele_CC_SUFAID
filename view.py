@@ -14,13 +14,7 @@ def upload_files():
    if request.method == 'POST':
 	  	try:
 			str_data = request.files['file'].read()
-			# print str_data
-			print str_data.find('{')-1
-			print str_data.rfind('}')+1
-			print "sadddddddddd"
 	  		json_data= str_data[str_data.find('{'):str_data.rfind('}')+1]
-			print "********",json_data,"********"
-			print '****',json_data[1],json_data[-1],"******"
 			dct_data=json.loads(json_data)
 		except:
 			return "In valid json formate."
@@ -31,7 +25,6 @@ def upload_files():
 		try:
 			lst_response = main(lst_data)
 		except Exception as E:
-			print E,"sdasdasdas"
 			return "Somthing went wrong."
 		return render_template('listing.html', data=lst_response)
 def main(lst_sms):
@@ -39,8 +32,8 @@ def main(lst_sms):
 	for sms in lst_sms:
 		if re.search('credit\s*card|debi\s*card', sms["text"], re.IGNORECASE):
 			sms["text"] = sms["text"].replace("\\","")
-			amount = re.search('[rR][sS]\.?\s*[,\d]+\.?\d{0,2}|[iI][nN][rR]\.?\s*[,\d]+\.?\d{0,2}', sms["text"])
-			account_no = re.search('[0-9]*[Xx\*]*[0-9]*[Xx\*]+\s*[\-0-9]{3,}|ending\s*\d{,4}',sms["text"],re.IGNORECASE )
+			amount = re.search('rs\.?\s*[,\d]+\.?\d{0,2}|inr\.?\s*[,\d]+\.?\d{0,2}', sms["text"],re.IGNORECASE)
+			account_no = re.search('[Xx\*]+\s*[\-0-9]{3,}|ending\s*\d{,4}',sms["text"],re.IGNORECASE )
 			str_date = re.search('\d{0,4}[\:\-\/]\w*[\:\-\/]\d{0,4}',sms["text"])
 			str_time = re.search('\d{0,2}:\d{0,2}:\d{0,2}\s',sms["text"])
 			

@@ -8,7 +8,7 @@ app = Flask(__name__)
 def upload_file():
    return render_template('upload.html')
 	
-@app.route('/uploader', methods = ['GET', 'POST'])
+@app.route('/card-details', methods = ['GET', 'POST'])
 def upload_files():
    if request.method == 'POST':
 	  	try:

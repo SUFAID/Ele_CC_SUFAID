@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  
+   <body>
+   <div class="col-md-12 col-xs-12">
+     <form action="http://localhost:5000/uploader" method="POST" enctype="multipart/form-data">
+         <div class="col-md-6" style=" margin-left: 27%;border: 1px solid #333;padding: 4%;background: #eee;">
+	<input type="file" name="file" style="float: left;"><button class="btn btn-primary" type="submit">submit</button>
+	</div>
+      </form>
+      </div>
+<script>
+
+// file extension validation.
+$('input[type=file]').change(function () {
+        var val = $(this).val().toLowerCase(),
+            regex = new RegExp("(.*?)\.(json|js)$");
+
+        if (!(regex.test(val))) {
+            $(this).val('');
+            alert('Please select correct file format');
+        }
+    });
+</script>
+   </body>
+</html>

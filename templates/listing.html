@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+    <h2> Credit/Debit Card Transaction</h2>
+    <table class="table table-bordered">
+      <thead>
+        <th>S. No.</th>
+        <th>Sender ID/Number</th>
+        <th>Credit/Debit Card Number (xxxxLast 4 Digit)</th>
+        <th>Amount</th>
+        <th>Transaction Date Time in SMS.</th>
+        <th>SMS Receive Date Time</th>
+      </thead>
+    {% set count = 7 %}
+      <tbody>
+              
+        {% for dct_data in data %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          
+          <td>{{  dct_data["sender_id"] }}</td>
+          <td>{{  dct_data["account_no"] }}</td>
+          <td>{{  dct_data["amount"] }}</td>
+          <td>{{  dct_data["trn_date"] }}</td>
+          <td>{{  dct_data["sms_date"] }}</td>
+        </tr>
+        
+    {% endfor %}
+      </tbody>
+    </table> 
+  </body>
+</html>
+
+

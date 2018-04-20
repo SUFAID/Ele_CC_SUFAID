@@ -50,7 +50,7 @@ def main(lst_sms):
 			
 			dct_data = {}
 			dct_data["amount"] = re.sub('^[^0-9]+','',amount)
-			dct_data["account_no"] = re.sub('[^0-9x*]+','xxxx',account_no)
+			dct_data["account_no"] = re.sub('[^0-9]+','xxxx',account_no)
 			
 			try:
 				#date format conversion 
